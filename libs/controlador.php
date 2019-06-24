@@ -26,9 +26,21 @@ abstract class Controlador {
 		$this->viewClass = "PAW\\Libs\\VistaHTMLSmarty";
 	}
 
-	public function redireccionar($localizacion) {
-		header("Location: $localizacion");
-		exit();
+	protected function redireccionar($controlador = null, $accion = null, $parametros = []) {
+		if (!empty($_SERVER["HTTPS"]) && ($_SERVER["HTTPS"] == "on")) {
+			$uri = "https://";
+		} else {
+			$uri = "http://";
+		}
+		$uri .= $_SERVER["HTTP_HOST"] . "/index.php";
+		if (isset($controlador) && !empty($controlador) && isset($accion) && !empty($accion)) {
+			$uri .= "/$controlador/$accion";
+			foreach ($parametros as $param) {
+				$uri .= "/$param";
+			}
+		}
+		header("Location: $uri");
+		exit;
 	}
 
 	public function ejecutarAccion($nombre, $parametros = []) {
@@ -54,6 +66,10 @@ abstract class Controlador {
 
 	public function getViewClass() {
 		return $this->viewClass;
+	}
+
+	protected function tieneDatos() {
+		return count($_REQUEST) > 0;
 	}
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once "libs/autoloader.php";
 
 use PAW\Libs\Configuracion;

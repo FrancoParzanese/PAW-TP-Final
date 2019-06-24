@@ -2,8 +2,7 @@
 
 namespace PAW\Libs;
 
-// ARREGLAR RUTA.
-require "D:\\XAMPP\\htdocs\\vendor\\smarty\\smarty\\libs\\smarty.class.php";
+require "vendor\\smarty\\smarty\\libs\\smarty.class.php";
 
 /**
  * Vista HTML con motor de templates Smarty.
