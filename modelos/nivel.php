@@ -5,7 +5,7 @@ namespace PAW\Modelos;
 /**
  * Niveles a los cuales pertenecen los usuarios.
  */
-public class Nivel {
+class Nivel {
 
 	/**
 	 * ID del nivel.

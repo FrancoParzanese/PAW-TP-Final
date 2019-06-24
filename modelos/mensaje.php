@@ -5,7 +5,7 @@ namespace PAW\Modelos;
 /**
  * Mensaje privado entre dos usuarios.
  */
-public class Mensaje {
+class Mensaje {
 
 	/**
 	 * ID del mensaje.

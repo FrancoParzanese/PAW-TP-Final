@@ -2,12 +2,15 @@
 
 namespace PAW\Libs;
 
+// ARREGLAR RUTA.
+require "D:\\XAMPP\\htdocs\\vendor\\smarty\\smarty\\libs\\smarty.class.php";
+
 /**
- * Vista HTML simple (no utiliza motor de templates).
+ * Vista HTML con motor de templates Smarty.
  *
- * @author Santiago Ricci <sricci.soft at gmail.com>
+ * @author Franco Parzanese.
  */
-class VistaHTMLSimple extends Vista {
+class VistaHTMLSmarty extends Vista {
 
 	/**
 	 * Directorio base de templates.
@@ -16,27 +19,23 @@ class VistaHTMLSimple extends Vista {
 	private $baseDir;
 
 	/**
-	 * Variables de la vista.
-	 * @var array
+	 * Objeto Smarty.
 	 */
-	private $viewVars;
+	private $smarty;
 
 	public function __construct() {
 		parent::__construct();
 		$this->contentType = "text/html";
 		$this->baseDir = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "vistas" . DIRECTORY_SEPARATOR;
-		$this->viewVars = [];
+		$this->smarty = new \Smarty;
 	}
 
 	protected function doRender($accion) {
-		extract($this->viewVars);
-		ob_start();
-		include $this->baseDir . $accion . ".php";
-		return ob_get_clean();
+		$this->smarty->display($this->baseDir . $accion . ".tpl");
 	}
 
 	public function setVariable($nombre, $valor) {
-		$this->viewVars[$nombre] = $valor;
+		$this->smarty->assign($nombre, $valor);
 	}
 
 }

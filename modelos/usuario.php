@@ -5,7 +5,7 @@ namespace PAW\Modelos;
 /**
  * Usuario del sitio web.
  */
-public class Usuario {
+class Usuario {
 
 	/**
 	 * ID del usuario.

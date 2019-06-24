@@ -23,7 +23,7 @@ abstract class Controlador {
 
 	public function __construct() {
 		$this->variablesVista = [];
-		$this->viewClass = "PAW\\Libs\\VistaHTMLSimple";
+		$this->viewClass = "PAW\\Libs\\VistaHTMLSmarty";
 	}
 
 	public function redireccionar($localizacion) {

@@ -5,7 +5,7 @@ namespace PAW\Modelos;
 /**
  * Comentario en un post.
  */
-public class Comentario {
+class Comentario {
 
 	/**
 	 * ID del comentario.

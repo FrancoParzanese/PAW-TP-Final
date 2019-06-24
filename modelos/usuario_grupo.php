@@ -6,7 +6,7 @@ namespace PAW\Modelos;
  * Entidad que relaciona un usuario con un grupo. Indica que $usuario es miembro
  * de $grupo.
  */
-public class Usuario_Grupo {
+class Usuario_Grupo {
 
 	/**
 	 * Usuario que se está relacionando con el grupo.

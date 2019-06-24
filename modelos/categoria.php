@@ -5,7 +5,7 @@ namespace PAW\Modelos;
 /**
  * Categoría temática a la cual pertenecen posts y/o grupos.
  */
-public class Categoria {
+class Categoria {
 
 	/**
 	 * ID de la categoría.

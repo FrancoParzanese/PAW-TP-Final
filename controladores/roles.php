@@ -7,6 +7,6 @@ use PAW\Libs\VistaHTML;
 /**
  * Roles creados por los administradores (creadores) de los grupos.
  */
-public class Roles extends \PAW\Libs\Controlador {}
+class Roles extends \PAW\Libs\Controlador {}
 
 ?>

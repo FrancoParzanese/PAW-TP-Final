@@ -5,7 +5,7 @@ namespace PAW\Modelos;
 /**
  * Post creado por un usuario, puede pertenecer a un grupo o no.
  */
-public class Post {
+class Post {
 
 	/**
 	 * ID del post.

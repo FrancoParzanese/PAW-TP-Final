@@ -5,7 +5,7 @@ namespace PAW\Modelos;
 /**
  * Grupo creado en el sitio web.
  */
-public class Grupo {
+class Grupo {
 
 	/**
 	 * ID del grupo.

@@ -7,6 +7,6 @@ use PAW\Libs\VistaHTML;
 /**
  * Usuario del sitio web.
  */
-public class Usuarios extends \PAW\Libs\Controlador {}
+Usuarios extends \PAW\Libs\Controlador {}
 
 ?>

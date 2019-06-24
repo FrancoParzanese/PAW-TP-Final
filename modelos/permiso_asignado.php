@@ -6,7 +6,7 @@ namespace PAW\Modelos;
  * Entidad de relación entre permisos y niveles. Permite indicar las capacidades
  * y limitaciones de los usuarios en base al nivel que tienen.
  */
-public class Permiso_Asignado {
+class Permiso_Asignado {
 
 	/**
 	 * Nivel que posee el permiso.

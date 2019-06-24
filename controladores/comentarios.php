@@ -7,6 +7,6 @@ use PAW\Libs\VistaHTML;
 /**
  * Comentario en un post.
  */
-public class Comentarios extends \PAW\Libs\Controlador {}
+class Comentarios extends \PAW\Libs\Controlador {}
 
 ?>

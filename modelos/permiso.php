@@ -6,7 +6,7 @@ namespace PAW\Modelos;
  * Permiso en el sitio web. Indica alguna actividad que no puede ser realiada
  * por cualquier usuario.
  */
-public class Permiso {
+class Permiso {
 
 	/**
 	 * ID del permiso.

@@ -5,7 +5,7 @@ namespace PAW\Modelos;
 /**
  * Roles creados por los administradores (creadores) de los grupos.
  */
-public class Rol {
+class Rol {
 
 	/**
 	 * ID del rol.
