@@ -44,6 +44,7 @@ abstract class Controlador {
 	}
 
 	public function ejecutarAccion($nombre, $parametros = []) {
+		$this->antesDelFiltro();
 		call_user_func_array([$this, $nombre], $parametros);
 		$claseVista = $this->getViewClass();
 		/* @var $vista Vista */
@@ -70,6 +71,20 @@ abstract class Controlador {
 
 	protected function tieneDatos() {
 		return count($_REQUEST) > 0;
+	}
+
+	protected function antesDelFiltro() {
+		if (isset($_SESSION["userIn"]) && !empty($_SESSION["userIn"])) {
+			$data = [
+				"id" => $_SESSION["userIn"]["id"],
+				"user" => $_SESSION["userIn"]["username"],
+				"nivel" => $_SESSION["userIn"]["nivel"]["nombre"],
+				"puntos" => $_SESSION["userIn"]["puntos"]
+			];
+		} else {
+			$data = null;
+		}
+		$this->pasarVariableAVista("sesion", $data);
 	}
 
 }

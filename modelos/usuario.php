@@ -45,22 +45,37 @@ class Usuario {
 	private $mensajePersonal;
 
 	/**
-	 * Devuelve la información resumida del usuario, ideal para mostrar en el header.
+	 * Devuelve la información del usuario, ideal para mostrar en el header.
 	 * @param string $user Nombre de usuario.
-	 * @return string[]|false Devuelve los datos del usuario resumidos en caso de éxito.
+	 * @return string[]|false Devuelve los datos del usuario en caso de éxito.
 	 * Devuelve <code>false</code> en caso de error.
 	 */
-	public static function getResumedInfo($user) {
+	public static function getUserInfo($user) {
 		$db = Database::getInstance();
 		// CORREGIR NIVEL PARA QUE DEVUELVA EL NOMBRE Y NO EL ID.
-		$sql = "SELECT id, nivel, puntos FROM usuarios WHERE username = :user";
+		$sql = "SELECT * FROM usuarios WHERE username = :user";
 		$stmt = $db->prepararConsulta($sql);
 		$stmt->bindParam(":user", $user);
 		if (!$stmt->execute()) {
 			return false;
 		}
 		$result = $stmt->fetchAll();
-		return $result ? $result[0] : false;
+		if (!$result) {
+			return false;
+		}
+		$result = $result[0];
+		$sql = "SELECT * FROM niveles WHERE id = :nivel";
+		$stmt = $db->prepararConsulta($sql);
+		$stmt->bindParam(":nivel", $result["nivel"]);
+		if (!$stmt->execute()) {
+			return false;
+		}
+		$result2 = $stmt->fetchAll();
+		if (!$result2) {
+			return false;
+		}
+		$result["nivel"] = $result2;
+		return $result;
 	}
 
 	/**

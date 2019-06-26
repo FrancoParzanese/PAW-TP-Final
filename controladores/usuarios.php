@@ -14,7 +14,7 @@ class Usuarios extends \PAW\Libs\Controlador {
 
 	public function login() {
 		if (isset($_SESSION["userIn"]) && !empty($_SESSION["userIn"])) {
-			$this->redireccionar();
+			$this->redireccionar("posts", "index");
 		}
 		$user = "";
 		$error = "";
@@ -22,8 +22,8 @@ class Usuarios extends \PAW\Libs\Controlador {
 			if (isset($_REQUEST["user"]) && !empty($_REQUEST["user"])
 					&& isset($_REQUEST["pass"]) && !empty($_REQUEST["pass"])) {
 				if (Usuario::login($_REQUEST["user"], $_REQUEST["pass"])) {
-					$_SESSION["userIn"] = Usuario::getResumedInfo($_REQUEST["user"]);
-					$this->redireccionar();
+					$_SESSION["userIn"] = Usuario::getUserInfo($_REQUEST["user"]);
+					$this->redireccionar("posts", "index");
 				} else {
 					$user = $_REQUEST["user"];
 					$error = "* - LOS DATOS SON INVÁLIDOS. INTENTE NUEVAMENTE.";
@@ -34,6 +34,11 @@ class Usuarios extends \PAW\Libs\Controlador {
 		}
 		$this->pasarVariableAVista("user", $user);
 		$this->pasarVariableAVista("error", $error);
+	}
+
+	public function logout() {
+		unset($_SESSION["userIn"]);
+		$this->redireccionar("posts", "index");
 	}
 
 }

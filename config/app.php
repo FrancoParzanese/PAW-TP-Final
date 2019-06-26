@@ -3,8 +3,8 @@
 return [
 	"Router" => [
 		"accionPorDefecto" => [
-			"controlador" => "Tbd",
-			"accion" => "tbd"
+			"controlador" => "Usuarios",
+			"accion" => "login"
 		]
 	]
 ];
